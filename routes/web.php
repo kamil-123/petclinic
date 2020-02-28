@@ -34,6 +34,7 @@ Route::get('/owners/{id}', 'OwnerController@show');
 Route::post('/owners/index', 'OwnerController@search');
 Route::post('/owners/create', 'OwnerController@store');
 Route::put('/owners/{id}/edit', 'OwnerController@update');
+Route::delete('/owners/delete', 'OwnerController@delete');
 
 
 

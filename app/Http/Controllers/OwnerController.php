@@ -13,6 +13,29 @@ class OwnerController extends Controller
     }
 
     public function search(Request $request){
-        $search = $request->input('')
+        $search = $request->input('name');
+        $owners = Owner::where('surname','LIKE', '%'.$search.'%')->orderBy('surname', 'asc')->get();
+        return view('/owners/index',compact('owners'));
+    }
+
+    public function create(){
+        return view('/owners/create');
+    }
+
+    public function store(Request $request){
+        $firstname = $request->input('firstname');
+        $surname = $request->input('surname');
+
+        $owner = new Owner;
+        $owner->first_name = $firstname;
+        $owner->surname = $surname;
+        $owner->save();
+        return redirect(action('OwnerController@index'));
+    }
+    public function delete(Request $request){
+        // return $request->input('ownerid');
+        $owner = Owner::findOrFail($request->input('ownerid'));
+        $owner->delete();
+        return redirect(action('OwnerController@index'));
     }
 }
