@@ -8,7 +8,7 @@ use App\Owner;
 class OwnerController extends Controller
 {
     public function index(){
-        $owners = Owner::all();
+        $owners = Owner::orderBy('surname', 'asc')->skip(0)->take(10)->get();
         return view('/owners/index',compact('owners'));
     }
 }
