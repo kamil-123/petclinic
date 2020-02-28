@@ -61,6 +61,27 @@ class VisitController extends Controller
         return redirect(action('VisitController@show', ['id' => $id]));
     }
 
+    public function create() {
+        if(isset($_GET['id'])) {
+            $pet = Pet::findOrFail($_GET['id']);
+            $view = view('visits/create', compact('pet'));
+        } else {
+            $view = view('visits/create');
+        }
+        return $view;
+    }
+
+    public function store(Request $request) {
+        $this->validate($request, [
+            'description' => 'required'
+        ]);
+        $visit = new Visit;
+        $visit->description = $request->description;
+        return redirect(action('VisitController@show', ['id' => $visit->id]));
+
+
+    }
+
 
 
 
