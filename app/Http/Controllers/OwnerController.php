@@ -11,4 +11,8 @@ class OwnerController extends Controller
         $owners = Owner::orderBy('surname', 'asc')->skip(0)->take(10)->get();
         return view('/owners/index',compact('owners'));
     }
+
+    public function search(Request $request){
+        $search = $request->input('')
+    }
 }

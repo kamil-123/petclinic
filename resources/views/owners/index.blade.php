@@ -1,7 +1,22 @@
 <div class="search">
- @foreach ($owners as $owner)
-  <div class="firstname">{{$owner->first_name}}</div>
-  <div class="surname">{{$owner->surname}}</div>
- @endforeach
-
+  <h3>List of owners</h3>
+  <form action="/owners/index" method="post">
+    @csrf
+    <input type="text" name="name" placeholder="Insert surname">
+    <input type="submit" value="search">
+  </form>
+  <table>
+    <tr>
+      <th>First name</th>
+      <th>Surname</th>
+    </tr>
+    <tbody>
+    @foreach ($owners as $owner)
+      <tr>
+        <th class="firstname">{{$owner->first_name}}</th>
+        <th class="surname">{{$owner->surname}}</th>
+      </tr>
+    @endforeach
+    </tbody>
+  </table>
 </div>

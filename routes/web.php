@@ -31,7 +31,7 @@ Route::get('/owners/create','OwnerController@create');
 Route::get('/owners/{id}/edit','OwnerController@edit');
 Route::get('/owners/{id}', 'OwnerController@show');
 
-Route::post('/pets/index', 'OwnerController@search');
+Route::post('/owners/index', 'OwnerController@search');
 Route::post('/owners/create', 'OwnerController@store');
 Route::put('/owners/{id}/edit', 'OwnerController@update');
 
