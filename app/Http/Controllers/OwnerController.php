@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class OwnerController extends Controller
 {
     public function index(){
-        return "hello from index";
+        
+        return 'ahoj';
     }
 }
