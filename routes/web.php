@@ -36,5 +36,22 @@ Route::post('/owners/create', 'OwnerController@store');
 Route::put('/owners/{id}/edit', 'OwnerController@update');
 Route::delete('/owners/delete', 'OwnerController@delete');
 
+// Visits
+
+Route::get('/visits','VisitController@index');
+Route::get('/visits/index','VisitController@index');
+Route::get('/visits/create','VisitController@create');
+Route::get('/visits/{id}/edit','VisitController@edit');
+Route::get('/visits/{id}', 'VisitController@show');
+
+Route::post('/visits/index', 'VisitController@search');
+Route::post('/visits/create', 'VisitController@store');
+Route::put('/visits/{id}/edit', 'VisitController@update');
+Route::delete('/visits/delete', 'VisitController@delete');
+
+
+
+
+
 
 
