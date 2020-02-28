@@ -9,13 +9,18 @@ use App\Pet;
 class VisitController extends Controller
 {
     public function index() {
+        if(isset($_GET['id'])) {
+            $visits = Visit::where('pet_id', $_GET['id'])->get();
+            $view = view('visits/index', compact('visits'));
+            return $view;
+        }
         $visits = Visit::orderBy('created_at', 'desc')->paginate(100);;
 
         $view = view('visits/index', compact('visits'));
         return $view;
     }
 
-    public function search(Request $request) {
+    public function search(Request $request, $id = null) {
         $visits = Visit::all();
         if(isset($request->date)) {
             $search = $request->date;
