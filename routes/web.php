@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Pets
 Route::get('/pets','PetController@index');
 Route::get('/pets/index','PetController@index');
 Route::get('/pets/create','PetController@create');
@@ -24,7 +25,9 @@ Route::get('/pets/{id}', 'PetController@show');
 Route::post('/pets/index', 'PetController@search');
 Route::post('/pets/create', 'PetController@store');
 Route::put('/pets/{id}/edit', 'PetController@update');
+Route::delete('/pets/delete', 'PetController@delete');
 
+// Owners
 Route::get('/owners','OwnerController@index');
 Route::get('/owners/index','OwnerController@index');
 Route::get('/owners/create','OwnerController@create');

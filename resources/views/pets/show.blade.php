@@ -38,6 +38,6 @@
       @endif
     </tr>
   </table>
-<img src="../photos/{{$pet->photo}}"
+<img src="../photos/{{$pet->photo}}">
 </div>
 

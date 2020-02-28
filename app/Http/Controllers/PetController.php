@@ -52,4 +52,16 @@ class PetController extends Controller
         return redirect(action('PetController@show', ['id' => $id]));
     }
 
+    public function create() {
+        return "hello from create";
+    }
+
+    public function delete(Request $request){
+        
+        $pet = Pet::findOrFail($request->input('petid'));
+        $owner = $request->input('ownerid');
+        $pet->delete();
+        return redirect(action('OwnerController@show', ['id' => $owner]));
+    }
+
 }

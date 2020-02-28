@@ -19,19 +19,19 @@
     <tbody>
     @foreach ($owners as $owner)
       <tr>
-        <th class="id">{{$owner->id}}</th>
-        <th class="firstname">{{$owner->first_name}}</th>
-        <th class="surname">{{$owner->surname}}</th>
-        <th class="edit"><a href="#">Edit</a></th>
-        <th class="show"><a href="{{action('OwnerController@show', ['id' => $owner->id])}}">Show</a></th>
-        <th class="delete">
+        <td class="id">{{$owner->id}}</td>
+        <td class="firstname">{{$owner->first_name}}</td>
+        <td class="surname">{{$owner->surname}}</td>
+        <td class="edit"><a href="#">Edit</a></td>
+        <td class="show"><a href="{{action('OwnerController@show', ['id' => $owner->id])}}">Show</a></td>
+        <td class="delete">
           <form action="/owners/delete" method="post">
             @method('delete')
             @csrf
             <input type="hidden" name="ownerid" value="{{$owner->id}}">
             <input type="submit" value="Delete">
           </form>
-        </th>
+        </td>
       </tr>
     @endforeach
     </tbody>

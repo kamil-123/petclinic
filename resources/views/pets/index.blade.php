@@ -15,6 +15,7 @@
     <th>Owner Name</th>
     <th>Show</td>
     <th>Edit</td>
+    <th>Delete</th>
   </tr>
 @foreach($pets as $pet)
   <tr>
